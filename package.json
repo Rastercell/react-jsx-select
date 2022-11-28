@@ -3,6 +3,9 @@
 	"version": "1.0.7",
 	"description": "A simple dropdown element with JSX options for form.",
 	"main": "src/index.js",
+	"files": [
+		"src"
+	],
 	"scripts": {
 		"test": "test react-jsx-select"
 	},
