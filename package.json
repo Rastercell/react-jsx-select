@@ -1,6 +1,6 @@
 {
 	"name": "react-jsx-select",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "A simple dropdown element with JSX options for form.",
 	"main": "src/index.js",
 	"scripts": {
@@ -31,7 +31,8 @@
 		"@popperjs/core": "^2.11.6",
 		"react-popper": "^2.3.0",
 		"react": "^18.2.0",
-		"lodash-es": "4.17.21"
+		"lodash-es": "4.17.21",
+		"source-map-loader": "^4.0.1"
 	},
 	"browserslist": [
 		">0.2%",
