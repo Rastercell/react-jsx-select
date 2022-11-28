@@ -1,13 +1,13 @@
 {
 	"name": "react-jsx-select",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "A simple dropdown element with JSX options for form.",
 	"main": "src/index.js",
 	"files": [
 		"src"
 	],
 	"scripts": {
-		"test": "test react-jsx-select"
+		"test": "test"
 	},
 	"repository": {
 		"type": "git",
@@ -29,14 +29,7 @@
 		"custom-select",
 		"jsx-dropdown"
 	],
-	"dependencies": {
-		"@babel/runtime": "^7.20.6",
-		"@popperjs/core": "^2.11.6",
-		"react-popper": "^2.3.0",
-		"react": "^18.2.0",
-		"lodash-es": "4.17.21",
-		"source-map-loader": "^4.0.1"
-	},
+	"dependencies": {},
 	"browserslist": [
 		">0.2%",
 		"not dead",
