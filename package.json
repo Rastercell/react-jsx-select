@@ -1,7 +1,7 @@
 {
 	"name": "react-jsx-select",
-	"version": "1.0.1",
-	"description": "\"A simple dropdown element with JSX options for form.\"",
+	"version": "1.0.3",
+	"description": "A simple dropdown element with JSX options for form.",
 	"main": "index.js",
 	"scripts": {
 		"test": "npm test react-jsx-select"
