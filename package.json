@@ -26,6 +26,11 @@
 		"custom-select",
 		"jsx-dropdown"
 	],
+	"dependencies": {
+		"@babel/runtime": "^7.20.6",
+		"@popperjs/core": "^2.11.6",
+		"react-popper": "^2.3.0"
+	},
 	"author": "Rastercell",
 	"license": "MIT",
 	"bugs": {
