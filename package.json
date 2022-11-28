@@ -4,7 +4,7 @@
 	"description": "A simple dropdown element with JSX options for form.",
 	"main": "src/index.js",
 	"scripts": {
-		"test": "npm test react-jsx-select"
+		"test": "test react-jsx-select"
 	},
 	"repository": {
 		"type": "git",
