@@ -29,8 +29,14 @@
 	"dependencies": {
 		"@babel/runtime": "^7.20.6",
 		"@popperjs/core": "^2.11.6",
-		"react-popper": "^2.3.0"
+		"react-popper": "^2.3.0",
+		"react": "^18.2.0"
 	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not op_mini all"
+	],
 	"author": "Rastercell",
 	"license": "MIT",
 	"bugs": {
