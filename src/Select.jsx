@@ -1,5 +1,5 @@
 const Select = () => {
-	return <h2>Modules</h2>;
+	return 'Modules';
 };
 
 export default Select;
