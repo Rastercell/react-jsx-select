@@ -1,5 +1,7 @@
 import React from 'react';
-const Select = () => {
+const Select = (props) => {
+	const { options, value, onChange } = props;
+
 	return React.createElement(
 		'div',
 		{
@@ -34,7 +36,7 @@ const Select = () => {
 						listStyle: 'none',
 					},
 				},
-				[<p>1</p>, <p>2</p>, <p>3</p>, <p>4</p>, <p>5</p>].map((item, i) =>
+				options?.map((item, i) =>
 					React.createElement(
 						'li',
 						{
