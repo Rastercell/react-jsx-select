@@ -31,6 +31,7 @@ const Select = (props) => {
 			setLabel('');
 		}
 	};
+	console.log(value, label);
 
 	const onSelectOption = () => {
 		setValue(options[activeItem]?.value);
@@ -39,7 +40,6 @@ const Select = (props) => {
 	};
 
 	const onClickOption = (i) => {
-		console.log(i);
 		setActiveItem(i);
 		onSelectOption();
 	};
@@ -60,6 +60,7 @@ const Select = (props) => {
 			onFocus: () => setIsShowDropdown(true),
 			// onBlur: () => setIsShowDropdown(false),
 			onKeyDown: (e) => inputKeyMap(e.key),
+			onChange: (e) => {},
 		}),
 		createElement(
 			'div',
