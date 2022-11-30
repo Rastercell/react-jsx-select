@@ -1,20 +1,24 @@
-import React from 'react';
+import { createElement, useState } from 'react';
 const Select = (props) => {
 	const { options, value, onChange } = props;
 
-	return React.createElement(
+	const [isShowDropdown, setIsShowDropdown] = useState(false);
+
+	return createElement(
 		'div',
 		{
 			className: 'react-jsx-select-wrapper',
 			style: { position: 'relative' },
 		},
-		React.createElement('input', {
+		createElement('input', {
 			type: 'text',
 			name: 'cars',
 			placeholder: 'Please Select',
 			className: 'form-control react-jsx-select-input',
+			onFocus: () => setIsShowDropdown(true),
+			onBlur: () => setIsShowDropdown(false),
 		}),
-		React.createElement(
+		createElement(
 			'div',
 			{
 				className: 'react-jsx-select-dropdown',
@@ -24,9 +28,10 @@ const Select = (props) => {
 					left: 0,
 					right: 0,
 					zIndex: 1000,
+					display: isShowDropdown ? 'block' : 'none',
 				},
 			},
-			React.createElement(
+			createElement(
 				'ul',
 				{
 					className: 'react-jsx-select-list',
@@ -37,7 +42,7 @@ const Select = (props) => {
 					},
 				},
 				options?.map((item, i) =>
-					React.createElement(
+					createElement(
 						'li',
 						{
 							key: i,
