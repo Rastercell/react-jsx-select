@@ -3,6 +3,27 @@ const Select = (props) => {
 	const { options, value, onChange } = props;
 
 	const [isShowDropdown, setIsShowDropdown] = useState(false);
+	const [activeItem, setActiveItem] = useState('');
+
+	const activeItemStyle = { backgroundColor: '#f0f0f0' };
+
+	const inputKeyMap = (key) => {
+		// Initialize Active Product if not already
+		if (key === 'ArrowDown' && activeProduct === -1) setActiveItem(0);
+		if (key === 'ArrowUp' && activeProduct === -1)
+			setActiveItem(options?.length - 1);
+
+		// Handle ArrowUp and ArrowDown with Escape
+		if (key === 'ArrowDown')
+			activeProduct < options?.length - 1
+				? setActiveItem(activeProduct + 1)
+				: setActiveItem(0);
+		else if (key === 'ArrowUp')
+			activeProduct > 0
+				? setActiveItem(activeProduct - 1)
+				: setActiveItem(options?.length - 1);
+		else if (key === 'Escape') setQuery('');
+	};
 
 	return createElement(
 		'div',
@@ -17,6 +38,7 @@ const Select = (props) => {
 			className: 'form-control react-jsx-select-input',
 			onFocus: () => setIsShowDropdown(true),
 			onBlur: () => setIsShowDropdown(false),
+			onKeyDown: (e) => inputKeyMap(e.key),
 		}),
 		createElement(
 			'div',
@@ -51,6 +73,7 @@ const Select = (props) => {
 								paddingLeft: '10px',
 								paddingRight: '10px',
 								listStyle: 'none',
+								...(i === activeItem ? activeItemStyle : {}),
 							},
 						},
 						item
