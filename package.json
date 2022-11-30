@@ -1,6 +1,6 @@
 {
 	"name": "react-jsx-select",
-	"version": "1.0.11",
+	"version": "1.0.12",
 	"description": "A simple dropdown element with JSX options for form.",
 	"main": "src/index.js",
 	"files": [
@@ -29,7 +29,9 @@
 		"custom-select",
 		"jsx-dropdown"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"react": "^18.2.0"
+	},
 	"browserslist": [
 		">0.2%",
 		"not dead",
