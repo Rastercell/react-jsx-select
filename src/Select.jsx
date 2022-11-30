@@ -55,7 +55,7 @@ const Select = (props) => {
 			placeholder: 'Please Select',
 			className: 'form-control react-jsx-select-input',
 			onFocus: () => setIsShowDropdown(true),
-			onBlur: () => setIsShowDropdown(false),
+			// onBlur: () => setIsShowDropdown(false),
 			onKeyDown: (e) => inputKeyMap(e.key),
 			onChange: (e) => {},
 		}),
