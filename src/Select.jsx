@@ -40,7 +40,8 @@ const Select = (props) => {
 	const onClickOption = (i) => {
 		console.log(i);
 		setActiveItem(i);
-		onSelectOption();
+		setValue(options[i]?.value);
+		setLabel(options[i]?.label);
 	};
 	console.log(value, label);
 
