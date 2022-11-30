@@ -25,16 +25,21 @@ const Select = (props) => {
 				? setActiveItem(activeItem - 1)
 				: setActiveItem(options?.length - 1);
 		} else if (key === 'Enter') {
-			onSelectOption(null);
+			onSelectOption();
 		} else if (key === 'Escape') {
 			setValue('');
 			setLabel('');
 		}
 	};
 
-	const onSelectOption = (i) => {
-		setValue(options[i || activeItem]?.value);
-		setLabel(options[i || activeItem]?.label);
+	const onSelectOption = () => {
+		setValue(options[activeItem]?.value);
+		setLabel(options[activeItem]?.label);
+	};
+
+	const onClickOption = (i) => {
+		setActiveItem(i);
+		onSelectOption();
 	};
 	console.log(value, label);
 
@@ -83,7 +88,7 @@ const Select = (props) => {
 						{
 							key: i,
 							className: 'react-jsx-select-list-item',
-							onClick: () => onSelectOption(i),
+							onClick: () => onClickOption(i),
 							style: {
 								padding: '8px',
 								margin: 0,
