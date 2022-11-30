@@ -4,6 +4,7 @@ const Select = (props) => {
 
 	const [isShowDropdown, setIsShowDropdown] = useState(false);
 	const [activeItem, setActiveItem] = useState(-1);
+	const [hoveredItem, setHoveredItem] = useState(-1);
 	const [value, setValue] = useState('');
 	const [label, setLabel] = useState('');
 
@@ -85,13 +86,16 @@ const Select = (props) => {
 						{
 							key: i,
 							className: 'react-jsx-select-list-item',
+							onMouseOver: () => setHoveredItem(i),
 							onClick: () => setActiveItem(i),
 							style: {
 								padding: '8px',
 								margin: 0,
 								listStyle: 'none',
 								cursor: 'pointer',
-								...(i === activeItem ? activeItemStyle : {}),
+								...(i === activeItem || i === hoveredItem
+									? activeItemStyle
+									: {}),
 							},
 						},
 						item?.jsx
