@@ -34,12 +34,9 @@ const Select = (props) => {
 		} else if (key === 'Escape') {
 			setValue('');
 			setLabel('');
+		} else if (key === ' ') {
+			setIsShowDropdown(!isShowDropdown);
 		}
-	};
-
-	const onClickOption = (i) => {
-		setActiveItem(i);
-		setIsShowDropdown(false);
 	};
 
 	return createElement(
@@ -88,7 +85,7 @@ const Select = (props) => {
 						{
 							key: i,
 							className: 'react-jsx-select-list-item',
-							onClick: () => onClickOption(i),
+							onClick: () => setActiveItem(i),
 							style: {
 								padding: '8px',
 								margin: 0,
