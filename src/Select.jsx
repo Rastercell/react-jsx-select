@@ -1,4 +1,4 @@
-import { createElement, useState } from 'react';
+import { createElement, useState, useEffect } from 'react';
 const Select = (props) => {
 	const { options, defaultValue, onChange } = props;
 
@@ -8,6 +8,11 @@ const Select = (props) => {
 	const [label, setLabel] = useState('');
 
 	const activeItemStyle = { backgroundColor: '#e0e0e0' };
+
+	useEffect(() => {
+		setValue(options[activeItem]?.value);
+		setLabel(options[activeItem]?.label);
+	}, [options, activeItem]);
 
 	const inputKeyMap = (key) => {
 		// Initialize Active Product if not already
@@ -25,26 +30,17 @@ const Select = (props) => {
 				? setActiveItem(activeItem - 1)
 				: setActiveItem(options?.length - 1);
 		} else if (key === 'Enter') {
-			onSelectOption();
+			setIsShowDropdown(false);
 		} else if (key === 'Escape') {
 			setValue('');
 			setLabel('');
 		}
 	};
-	console.log(value, label);
-
-	const onSelectOption = () => {
-		console.log(activeItem);
-		setValue(options[activeItem]?.value);
-		setLabel(options[activeItem]?.label);
-		setIsShowDropdown(false);
-	};
 
 	const onClickOption = (i) => {
 		setActiveItem(i);
-		onSelectOption();
+		setIsShowDropdown(false);
 	};
-	console.log(value, label);
 
 	return createElement(
 		'div',
@@ -59,7 +55,7 @@ const Select = (props) => {
 			placeholder: 'Please Select',
 			className: 'form-control react-jsx-select-input',
 			onFocus: () => setIsShowDropdown(true),
-			// onBlur: () => setIsShowDropdown(false),
+			onBlur: () => setIsShowDropdown(false),
 			onKeyDown: (e) => inputKeyMap(e.key),
 			onChange: (e) => {},
 		}),
