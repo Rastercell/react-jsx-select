@@ -3,9 +3,9 @@ const Select = (props) => {
 	const { options, value, onChange } = props;
 
 	const [isShowDropdown, setIsShowDropdown] = useState(false);
-	const [activeItem, setActiveItem] = useState('');
+	const [activeItem, setActiveItem] = useState(-1);
 
-	const activeItemStyle = { backgroundColor: '#f0f0f0' };
+	const activeItemStyle = { backgroundColor: '#e0e0e0' };
 
 	const inputKeyMap = (key) => {
 		// Initialize Active Product if not already
@@ -70,7 +70,7 @@ const Select = (props) => {
 							key: i,
 							className: 'react-jsx-select-list-item',
 							style: {
-								padding: '10px',
+								padding: '8px',
 								margin: 0,
 								listStyle: 'none',
 								...(i === activeItem ? activeItemStyle : {}),
