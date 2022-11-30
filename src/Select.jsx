@@ -25,12 +25,16 @@ const Select = (props) => {
 				? setActiveItem(activeItem - 1)
 				: setActiveItem(options?.length - 1);
 		} else if (key === 'Enter') {
-			setValue(options[activeItem]?.value);
-			setLabel(options[activeItem]?.label);
+			onSelecOption();
 		} else if (key === 'Escape') {
 			setValue('');
 			setLabel('');
 		}
+	};
+
+	const onSelecOption = () => {
+		setValue(options[activeItem]?.value);
+		setLabel(options[activeItem]?.label);
 	};
 	console.log(value, label);
 
@@ -79,10 +83,12 @@ const Select = (props) => {
 						{
 							key: i,
 							className: 'react-jsx-select-list-item',
+							onClick: () => onSelecOption(),
 							style: {
 								padding: '8px',
 								margin: 0,
 								listStyle: 'none',
+								cursor: 'pointer',
 								...(i === activeItem ? activeItemStyle : {}),
 							},
 						},
