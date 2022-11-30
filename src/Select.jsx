@@ -1,9 +1,11 @@
 import { createElement, useState } from 'react';
 const Select = (props) => {
-	const { options, value, onChange } = props;
+	const { options, defaultValue, onChange } = props;
 
 	const [isShowDropdown, setIsShowDropdown] = useState(false);
 	const [activeItem, setActiveItem] = useState(-1);
+	const [value, setValue] = useState('');
+	const [label, setLabel] = useState('');
 
 	const activeItemStyle = { backgroundColor: '#e0e0e0' };
 
@@ -14,15 +16,21 @@ const Select = (props) => {
 			setActiveItem(options?.length - 1);
 
 		// Handle ArrowUp and ArrowDown with Escape
-		if (key === 'ArrowDown')
+		if (key === 'ArrowDown') {
 			activeItem < options?.length - 1
 				? setActiveItem(activeItem + 1)
 				: setActiveItem(0);
-		else if (key === 'ArrowUp')
+		} else if (key === 'ArrowUp') {
 			activeItem > 0
 				? setActiveItem(activeItem - 1)
 				: setActiveItem(options?.length - 1);
-		else if (key === 'Escape') setQuery('');
+		} else if (key === 'Enter') {
+			setValue(options[activeItem]?.value);
+			setLabel(options[activeItem]?.label);
+		} else if (key === 'Escape') {
+			setValue('');
+			setLabel('');
+		}
 	};
 
 	return createElement(
@@ -34,6 +42,7 @@ const Select = (props) => {
 		createElement('input', {
 			type: 'text',
 			name: 'cars',
+			value: label,
 			placeholder: 'Please Select',
 			className: 'form-control react-jsx-select-input',
 			onFocus: () => setIsShowDropdown(true),
