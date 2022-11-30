@@ -23,10 +23,12 @@ const Select = (props) => {
 
 		// Handle ArrowUp and ArrowDown with Escape
 		if (key === 'ArrowDown') {
+			setHoveredItem(-1);
 			activeItem < options?.length - 1
 				? setActiveItem(activeItem + 1)
 				: setActiveItem(0);
 		} else if (key === 'ArrowUp') {
+			setHoveredItem(-1);
 			activeItem > 0
 				? setActiveItem(activeItem - 1)
 				: setActiveItem(options?.length - 1);
