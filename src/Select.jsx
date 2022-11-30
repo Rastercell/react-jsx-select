@@ -42,6 +42,11 @@ const Select = (props) => {
 		}
 	};
 
+	const onClickOption = (i) => {
+		setActiveItem(i);
+		setIsShowDropdown(false);
+	};
+
 	return createElement(
 		'div',
 		{
@@ -57,7 +62,7 @@ const Select = (props) => {
 			onFocus: () => setIsShowDropdown(true),
 			// onBlur: () => setIsShowDropdown(false),
 			onKeyDown: (e) => inputKeyMap(e.key),
-			onChange: (e) => {},
+			onChange: (e) => onChange({ ...e, value: value }),
 		}),
 		createElement(
 			'div',
@@ -89,13 +94,14 @@ const Select = (props) => {
 							key: i,
 							className: 'react-jsx-select-list-item',
 							onMouseOver: () => setHoveredItem(i),
-							onClick: () => setActiveItem(i),
+							onClick: () => onClickOption(i),
 							style: {
 								padding: '8px',
 								margin: 0,
 								listStyle: 'none',
 								cursor: 'pointer',
-								...(i === activeItem || i === hoveredItem
+								...((i === activeItem && hoveredItem === -1) ||
+								i === hoveredItem
 									? activeItemStyle
 									: {}),
 							},
