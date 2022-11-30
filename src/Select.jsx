@@ -35,13 +35,13 @@ const Select = (props) => {
 	const onSelectOption = () => {
 		setValue(options[activeItem]?.value);
 		setLabel(options[activeItem]?.label);
+		setIsShowDropdown(false);
 	};
 
 	const onClickOption = (i) => {
 		console.log(i);
 		setActiveItem(i);
-		setValue(options[i]?.value);
-		setLabel(options[i]?.label);
+		onSelectOption();
 	};
 	console.log(value, label);
 
@@ -58,7 +58,7 @@ const Select = (props) => {
 			placeholder: 'Please Select',
 			className: 'form-control react-jsx-select-input',
 			onFocus: () => setIsShowDropdown(true),
-			onBlur: () => setIsShowDropdown(false),
+			// onBlur: () => setIsShowDropdown(false),
 			onKeyDown: (e) => inputKeyMap(e.key),
 		}),
 		createElement(
