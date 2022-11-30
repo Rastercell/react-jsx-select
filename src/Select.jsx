@@ -9,18 +9,18 @@ const Select = (props) => {
 
 	const inputKeyMap = (key) => {
 		// Initialize Active Product if not already
-		if (key === 'ArrowDown' && activeProduct === -1) setActiveItem(0);
-		if (key === 'ArrowUp' && activeProduct === -1)
+		if (key === 'ArrowDown' && activeItem === -1) setActiveItem(0);
+		if (key === 'ArrowUp' && activeItem === -1)
 			setActiveItem(options?.length - 1);
 
 		// Handle ArrowUp and ArrowDown with Escape
 		if (key === 'ArrowDown')
-			activeProduct < options?.length - 1
-				? setActiveItem(activeProduct + 1)
+			activeItem < options?.length - 1
+				? setActiveItem(activeItem + 1)
 				: setActiveItem(0);
 		else if (key === 'ArrowUp')
-			activeProduct > 0
-				? setActiveItem(activeProduct - 1)
+			activeItem > 0
+				? setActiveItem(activeItem - 1)
 				: setActiveItem(options?.length - 1);
 		else if (key === 'Escape') setQuery('');
 	};
