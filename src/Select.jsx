@@ -34,6 +34,7 @@ const Select = (props) => {
 	console.log(value, label);
 
 	const onSelectOption = () => {
+		console.log(activeItem);
 		setValue(options[activeItem]?.value);
 		setLabel(options[activeItem]?.label);
 		setIsShowDropdown(false);
