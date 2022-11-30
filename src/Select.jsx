@@ -32,6 +32,7 @@ const Select = (props) => {
 			setLabel('');
 		}
 	};
+	console.log(value, label);
 
 	return createElement(
 		'div',
@@ -85,7 +86,7 @@ const Select = (props) => {
 								...(i === activeItem ? activeItemStyle : {}),
 							},
 						},
-						item
+						item?.jsx
 					)
 				)
 			)
