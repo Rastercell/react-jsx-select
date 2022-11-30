@@ -38,6 +38,7 @@ const Select = (props) => {
 	};
 
 	const onClickOption = (i) => {
+		console.log(i);
 		setActiveItem(i);
 		onSelectOption();
 	};
