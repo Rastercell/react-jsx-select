@@ -65,6 +65,7 @@ const Select = (props) => {
 			name: 'cars',
 			value: label,
 			placeholder: 'Please Select',
+			autoComplete: 'off',
 			className: 'form-control react-jsx-select-input',
 			onFocus: () => setIsShowDropdown(true),
 			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
