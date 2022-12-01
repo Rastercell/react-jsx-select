@@ -1,35 +1,6 @@
 import { createElement, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-Select.propTypes = {
-	options: PropTypes.array,
-	defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	isDisabled: PropTypes.bool,
-	onChange: PropTypes.func,
-	isRequired: PropTypes.bool,
-	className: PropTypes.string,
-	activeItemStyle: PropTypes.object,
-	name: PropTypes.string,
-	placeholder: PropTypes.string,
-	listStyle: PropTypes.object,
-};
-
-Select.defaultProps = {
-	options: [],
-	defaultValue: '',
-	isDisabled: false,
-	onChange: () => {},
-	isRequired: false,
-	className: 'form-control',
-	activeItemStyle: { backgroundColor: '#e0e0e0' },
-	name: '',
-	placeholder: 'Please Select',
-	listStyle: {
-		backgroundColor: '#fff',
-		border: '1px solid #ccc',
-	},
-};
-
 const findWithAttr = (array, attr, value) => {
 	for (var i = 0; i < array.length; i += 1) {
 		if (array[i][attr] === value) {
@@ -172,6 +143,35 @@ const Select = (props) => {
 			)
 		)
 	);
+};
+
+Select.propTypes = {
+	options: PropTypes.array,
+	defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	isDisabled: PropTypes.bool,
+	onChange: PropTypes.func,
+	isRequired: PropTypes.bool,
+	className: PropTypes.string,
+	activeItemStyle: PropTypes.object,
+	name: PropTypes.string,
+	placeholder: PropTypes.string,
+	listStyle: PropTypes.object,
+};
+
+Select.defaultProps = {
+	options: [],
+	defaultValue: '',
+	isDisabled: false,
+	onChange: () => {},
+	isRequired: false,
+	className: 'form-control',
+	activeItemStyle: { backgroundColor: '#e0e0e0' },
+	name: '',
+	placeholder: 'Please Select',
+	listStyle: {
+		backgroundColor: '#fff',
+		border: '1px solid #ccc',
+	},
 };
 
 export default Select;
