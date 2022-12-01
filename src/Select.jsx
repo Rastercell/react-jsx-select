@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const findWithAttr = (array, attr, value) => {
 	for (var i = 0; i < array.length; i += 1) {
-		if (array[i][attr] === value) {
+		if (array[i][attr]?.toString() === value?.toString()) {
 			return i;
 		}
 	}
@@ -15,7 +15,7 @@ const Select = (props) => {
 		options,
 		defaultValue,
 		disabled,
-		isRequired,
+		required,
 		className,
 		onChange,
 		activeItemStyle,
@@ -88,7 +88,7 @@ const Select = (props) => {
 			value: label,
 			placeholder: placeholder,
 			autoComplete: 'off',
-			isRequired: isRequired,
+			required: required,
 			disabled: disabled,
 			className: `react-jsx-select-input ${className}`,
 			onFocus: () => setIsShowDropdown(true),
@@ -150,7 +150,7 @@ Select.propTypes = {
 	defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	disabled: PropTypes.bool,
 	onChange: PropTypes.func,
-	isRequired: PropTypes.bool,
+	required: PropTypes.bool,
 	className: PropTypes.string,
 	activeItemStyle: PropTypes.object,
 	name: PropTypes.string,
@@ -163,8 +163,8 @@ Select.defaultProps = {
 	defaultValue: '',
 	disabled: false,
 	onChange: () => {},
-	isRequired: false,
-	className: 'form-control',
+	required: false,
+	className: '',
 	activeItemStyle: { backgroundColor: '#e0e0e0' },
 	name: '',
 	placeholder: 'Please Select',
