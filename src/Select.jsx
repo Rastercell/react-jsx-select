@@ -62,7 +62,7 @@ const Select = (props) => {
 			onFocus: () => setIsShowDropdown(true),
 			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
 			onKeyDown: (e) => inputKeyMap(e.key),
-			onChange: (e) => onChange({ ...e, value: value }),
+			onChange: (e) => console.log(e),
 		}),
 		createElement(
 			'div',
