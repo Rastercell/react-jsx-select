@@ -14,7 +14,7 @@ const Select = (props) => {
 	const {
 		options,
 		defaultValue,
-		isDisabled,
+		disabled,
 		isRequired,
 		className,
 		onChange,
@@ -89,7 +89,7 @@ const Select = (props) => {
 			placeholder: placeholder,
 			autoComplete: 'off',
 			isRequired: isRequired,
-			isDisabled: isDisabled,
+			disabled: disabled,
 			className: `react-jsx-select-input ${className}`,
 			onFocus: () => setIsShowDropdown(true),
 			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
@@ -148,7 +148,7 @@ const Select = (props) => {
 Select.propTypes = {
 	options: PropTypes.array,
 	defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	isDisabled: PropTypes.bool,
+	disabled: PropTypes.bool,
 	onChange: PropTypes.func,
 	isRequired: PropTypes.bool,
 	className: PropTypes.string,
@@ -161,7 +161,7 @@ Select.propTypes = {
 Select.defaultProps = {
 	options: [],
 	defaultValue: '',
-	isDisabled: false,
+	disabled: false,
 	onChange: () => {},
 	isRequired: false,
 	className: 'form-control',
