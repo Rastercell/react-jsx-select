@@ -51,6 +51,7 @@ const Select = (props) => {
 		'div',
 		{
 			className: 'react-jsx-select-wrapper',
+			onMouseLeave: () => setHoveredItem(-1),
 			style: { position: 'relative' },
 		},
 		createElement('input', {
@@ -60,7 +61,7 @@ const Select = (props) => {
 			placeholder: 'Please Select',
 			className: 'form-control react-jsx-select-input',
 			onFocus: () => setIsShowDropdown(true),
-			// onBlur: () => setIsShowDropdown(false),
+			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
 			onKeyDown: (e) => inputKeyMap(e.key),
 			onChange: (e) => onChange({ ...e, value: value }),
 		}),
