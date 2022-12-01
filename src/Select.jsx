@@ -91,6 +91,7 @@ const Select = (props) => {
 			required: required,
 			disabled: disabled,
 			className: `react-jsx-select-input ${className}`,
+			onChange: () => {},
 			onFocus: () => setIsShowDropdown(true),
 			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
 			onKeyDown: (e) => inputKeyMap(e.key),
