@@ -1,15 +1,66 @@
 import { createElement, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
+Select.propTypes = {
+	options: PropTypes.array,
+	defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	isDisabled: PropTypes.bool,
+	onChange: PropTypes.func,
+	isRequired: PropTypes.bool,
+	className: PropTypes.string,
+	activeItemStyle: PropTypes.object,
+	name: PropTypes.string,
+	placeholder: PropTypes.string,
+	listStyle: PropTypes.object,
+};
+
+Select.defaultProps = {
+	options: [],
+	defaultValue: '',
+	isDisabled: false,
+	onChange: () => {},
+	isRequired: false,
+	className: 'form-control',
+	activeItemStyle: { backgroundColor: '#e0e0e0' },
+	name: '',
+	placeholder: 'Please Select',
+	listStyle: {
+		backgroundColor: '#fff',
+		border: '1px solid #ccc',
+	},
+};
+
+const findWithAttr = (array, attr, value) => {
+	for (var i = 0; i < array.length; i += 1) {
+		if (array[i][attr] === value) {
+			return i;
+		}
+	}
+	return -1;
+};
+
 const Select = (props) => {
-	const { options, defaultValue, onChange } = props;
+	const {
+		options,
+		defaultValue,
+		isDisabled,
+		isRequired,
+		className,
+		onChange,
+		activeItemStyle,
+		name,
+		placeholder,
+		listStyle,
+	} = props;
 
 	const [isShowDropdown, setIsShowDropdown] = useState(false);
-	const [activeItem, setActiveItem] = useState(-1);
+	const [activeItem, setActiveItem] = useState(
+		findWithAttr(options, 'value', defaultValue)
+	);
 	const [hoveredItem, setHoveredItem] = useState(-1);
 	const [value, setValue] = useState('');
 	const [label, setLabel] = useState('');
 	const [jsx, setJsx] = useState('');
-
-	const activeItemStyle = { backgroundColor: '#e0e0e0' };
 
 	useEffect(() => {
 		setValue(options[activeItem]?.value);
@@ -62,11 +113,13 @@ const Select = (props) => {
 		},
 		createElement('input', {
 			type: 'text',
-			name: 'cars',
+			name: name,
 			value: label,
-			placeholder: 'Please Select',
+			placeholder: placeholder,
 			autoComplete: 'off',
-			className: 'form-control react-jsx-select-input',
+			isRequired: isRequired,
+			isDisabled: isDisabled,
+			className: `react-jsx-select-input ${className}`,
 			onFocus: () => setIsShowDropdown(true),
 			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
 			onKeyDown: (e) => inputKeyMap(e.key),
@@ -76,7 +129,6 @@ const Select = (props) => {
 			{
 				className: 'react-jsx-select-dropdown',
 				style: {
-					backgroundColor: '#fff',
 					position: 'absolute',
 					left: 0,
 					right: 0,
@@ -90,7 +142,7 @@ const Select = (props) => {
 					className: 'react-jsx-select-list',
 					onMouseOut: () => setHoveredItem(-1),
 					style: {
-						border: '1px solid #ccc',
+						...listStyle,
 						paddingLeft: 0,
 						listStyle: 'none',
 					},
