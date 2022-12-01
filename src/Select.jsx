@@ -51,7 +51,6 @@ const Select = (props) => {
 		'div',
 		{
 			className: 'react-jsx-select-wrapper',
-			onMouseLeave: () => setHoveredItem(-1),
 			style: { position: 'relative' },
 		},
 		createElement('input', {
@@ -82,6 +81,7 @@ const Select = (props) => {
 				'ul',
 				{
 					className: 'react-jsx-select-list',
+					onMouseOut: () => setHoveredItem(-1),
 					style: {
 						border: '1px solid #ccc',
 						paddingLeft: 0,
