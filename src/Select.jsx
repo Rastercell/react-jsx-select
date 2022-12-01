@@ -7,13 +7,19 @@ const Select = (props) => {
 	const [hoveredItem, setHoveredItem] = useState(-1);
 	const [value, setValue] = useState('');
 	const [label, setLabel] = useState('');
+	const [jsx, setJsx] = useState('');
 
 	const activeItemStyle = { backgroundColor: '#e0e0e0' };
 
 	useEffect(() => {
 		setValue(options[activeItem]?.value);
 		setLabel(options[activeItem]?.label);
+		setJsx(options[activeItem]?.jsx);
 	}, [options, activeItem]);
+
+	useEffect(() => {
+		onChange({ value: value, label: label, jsx: jsx });
+	}, [value, label, jsx]);
 
 	const inputKeyMap = (key) => {
 		// Initialize Active Product if not already
@@ -37,6 +43,7 @@ const Select = (props) => {
 		} else if (key === 'Escape') {
 			setValue('');
 			setLabel('');
+			setJsx('');
 		} else if (key === ' ') {
 			setIsShowDropdown(!isShowDropdown);
 		}
@@ -62,7 +69,6 @@ const Select = (props) => {
 			onFocus: () => setIsShowDropdown(true),
 			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
 			onKeyDown: (e) => inputKeyMap(e.key),
-			onChange: (e) => console.log(e),
 		}),
 		createElement(
 			'div',
