@@ -22,6 +22,8 @@ const Select = (props) => {
 		name,
 		placeholder,
 		listStyle,
+		iconWidth,
+		iconStyle,
 	} = props;
 
 	const [isShowDropdown, setIsShowDropdown] = useState(false);
@@ -110,11 +112,12 @@ const Select = (props) => {
 				'span',
 				{
 					className: `react-jsx-select-input-icon ${className}`,
+					onClick: () => setIsShowDropdown(!isShowDropdown),
 					style: {
-						width: '50px',
+						width: iconWidth + 'px',
 						textAlign: 'center',
-						marginLeft: '-50px',
-						fontSize: '30px',
+						marginLeft: -iconWidth + 'px',
+						...iconStyle,
 					},
 				},
 				createElement(
@@ -191,6 +194,8 @@ Select.propTypes = {
 	name: PropTypes.string,
 	placeholder: PropTypes.string,
 	listStyle: PropTypes.object,
+	iconWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	iconStyle: PropTypes.object,
 };
 
 Select.defaultProps = {
@@ -206,6 +211,12 @@ Select.defaultProps = {
 	listStyle: {
 		backgroundColor: '#fff',
 		border: '1px solid #ccc',
+	},
+	iconWidth: '50',
+	iconStyle: {
+		fontSize: '26px',
+		backgroundColor: '#fff',
+		borderRadius: '0 5px 5px 0',
 	},
 };
 
