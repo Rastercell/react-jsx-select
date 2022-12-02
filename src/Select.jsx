@@ -112,14 +112,17 @@ const Select = (props) => {
 					className: `react-jsx-select-input-icon ${className}`,
 					style: { width: '50px', textAlign: 'center' },
 				},
-				<svg
-					xmlns='http://www.w3.org/2000/svg'
-					width='1em'
-					height='1em'
-					preserveAspectRatio='xMidYMid meet'
-					viewBox='0 0 24 24'>
-					<path fill='currentColor' d='m12 15l-5-5h10Z' />
-				</svg>
+				createElement(
+					'svg',
+					{
+						xmlns: 'http://www.w3.org/2000/svg',
+						width: '1em',
+						height: '1em',
+						preserveAspectRatio: 'xMidYMid meet',
+						viewBox: '0 0 24 24',
+					},
+					createElement('path', { fill: 'currentColor', d: 'm12 15l-5-5h10Z' })
+				)
 			)
 		),
 		createElement(
