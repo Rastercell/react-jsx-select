@@ -82,20 +82,40 @@ const Select = (props) => {
 			className: 'react-jsx-select-wrapper',
 			style: { position: 'relative' },
 		},
-		createElement('input', {
-			type: 'text',
-			name: name,
-			value: label,
-			placeholder: placeholder,
-			autoComplete: 'off',
-			required: required,
-			disabled: disabled,
-			className: `react-jsx-select-input ${className}`,
-			onChange: () => {},
-			onFocus: () => setIsShowDropdown(true),
-			onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
-			onKeyDown: (e) => inputKeyMap(e.key),
-		}),
+		createElement(
+			'div',
+			{
+				className: 'react-jsx-select-input-container',
+				style: {
+					display: '-ms-flexbox',
+					display: 'flex',
+					alignItems: 'center',
+				},
+			},
+			createElement('input', {
+				type: 'text',
+				name: name,
+				value: label,
+				placeholder: placeholder,
+				autoComplete: 'off',
+				required: required,
+				disabled: disabled,
+				className: `react-jsx-select-input ${className}`,
+				onChange: () => {},
+				onFocus: () => setIsShowDropdown(true),
+				onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
+				onKeyDown: (e) => inputKeyMap(e.key),
+			}),
+			createElement(
+				'span',
+				{
+					className: `react-jsx-select-input-icon ${className}`,
+					content: '\u2304',
+					style: { width: '50px', textAlign: 'center' },
+				},
+				null
+			)
+		),
 		createElement(
 			'div',
 			{
