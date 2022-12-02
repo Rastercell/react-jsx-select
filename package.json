@@ -1,47 +1,47 @@
 {
-	"name": "react-jsx-select",
-	"version": "1.2.8",
-	"description": "A simple dropdown element with JSX options for form.",
-	"main": "src/index.js",
-	"files": [
-		"src"
-	],
-	"scripts": {
-		"test": "test"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Rastercell/react-jsx-select.git"
-	},
-	"keywords": [
-		"form",
-		"select",
-		"option",
-		"choice",
-		"js",
-		"jsx",
-		"react",
-		"react-select",
-		"dropdown",
-		"react-dropdown",
-		"input-select",
-		"select-input",
-		"custom-select",
-		"jsx-dropdown"
-	],
-	"dependencies": {
-		"prop-types": "^15.8.1",
-		"react": "^18.2.0"
-	},
-	"browserslist": [
-		">0.2%",
-		"not dead",
-		"not op_mini all"
-	],
-	"author": "Rastercell",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/Rastercell/react-jsx-select/issues"
-	},
-	"homepage": "https://github.com/Rastercell/react-jsx-select#readme"
+  "name": "react-jsx-select",
+  "version": "1.2.9",
+  "description": "A simple dropdown element with JSX options for form.",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rastercell/react-jsx-select.git"
+  },
+  "keywords": [
+    "form",
+    "select",
+    "option",
+    "choice",
+    "js",
+    "jsx",
+    "react",
+    "react-select",
+    "dropdown",
+    "react-dropdown",
+    "input-select",
+    "select-input",
+    "custom-select",
+    "jsx-dropdown"
+  ],
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "author": "Rastercell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rastercell/react-jsx-select/issues"
+  },
+  "homepage": "https://github.com/Rastercell/react-jsx-select#readme"
 }
