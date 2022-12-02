@@ -110,8 +110,11 @@ const Select = (props) => {
 				'span',
 				{
 					className: `react-jsx-select-input-icon ${className}`,
-					content: '\u2304',
-					style: { width: '50px', textAlign: 'center' },
+					style: {
+						content: '\u2304',
+						width: '50px',
+						textAlign: 'center',
+					},
 				},
 				null
 			)
