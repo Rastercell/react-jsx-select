@@ -215,7 +215,6 @@ Select.defaultProps = {
 	iconWidth: '50',
 	iconStyle: {
 		fontSize: '26px',
-		backgroundColor: '#fff',
 		borderRadius: '0 5px 5px 0',
 	},
 };
