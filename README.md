@@ -52,8 +52,8 @@ import { Select } from 'react-jsx-select';
     border: '1px solid #ccc',
   }}
   activeItemStyle={{ backgroundColor: '#e0e000' }}
-  iconWidth= '50'
-  iconStyle= {{
+  iconWidth='50'
+  iconStyle={{
     fontSize: '26px',
     backgroundColor: '#fff',
     borderRadius: '0 5px 5px 0',
