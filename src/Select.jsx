@@ -111,7 +111,7 @@ const Select = (props) => {
 			createElement(
 				'span',
 				{
-					className: `react-jsx-select-input-icon ${className}`,
+					className: 'react-jsx-select-input-icon',
 					onClick: () => setIsShowDropdown(!isShowDropdown),
 					style: {
 						width: iconWidth + 'px',
