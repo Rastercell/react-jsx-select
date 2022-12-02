@@ -110,7 +110,12 @@ const Select = (props) => {
 				'span',
 				{
 					className: `react-jsx-select-input-icon ${className}`,
-					style: { width: '50px', textAlign: 'center' },
+					style: {
+						width: '50px',
+						textAlign: 'center',
+						marginLeft: '-50px',
+						fontSize: '30px',
+					},
 				},
 				createElement(
 					'svg',
