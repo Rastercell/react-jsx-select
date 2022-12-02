@@ -107,7 +107,7 @@ const Select = (props) => {
 				onKeyDown: (e) => inputKeyMap(e.key),
 			}),
 			createElement(
-				'span',
+				'i',
 				{
 					className: `react-jsx-select-input-icon ${className}`,
 					style: {
