@@ -200,7 +200,7 @@ const Select = (props) => {
         },
         options?.map(
           (item, i) =>
-            item?.label.includes(query) &&
+            (item?.label).toString().includes(query) &&
             createElement(
               'li',
               {
