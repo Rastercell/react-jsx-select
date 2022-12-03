@@ -5,10 +5,16 @@ A simple and lightweight dropdown element with JSX options for form.
 ## Installation
 
 for yarn
-`yarn add react-jsx-select`
+
+```javascript
+yarn add react-jsx-select
+```
 
 for npm
-`npm install react-jsx-select`
+
+```javascript
+npm install react-jsx-select
+```
 
 ## Basic Example Code
 
@@ -40,7 +46,7 @@ import { Select } from 'react-jsx-select';
     { value: 4, label: 4, jsx: <span>4</span> },
     { value: 5, label: 5, jsx: <span>5</span> },
   ]}
-  onChange={(value) => console.log(value)}
+  onChange={(e) => console.log(e)}
   name='sample'
   placeholder='Select Please...'
   defaultValue={2}
@@ -57,5 +63,8 @@ import { Select } from 'react-jsx-select';
     fontSize: '26px',
     borderRadius: '0 5px 5px 0',
   }}
+  purpose='search'
+  onSearch={(e) => console.log(e)}
+  onExactSearch={(e) => console.log(e)}
 />;
 ```
