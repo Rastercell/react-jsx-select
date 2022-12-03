@@ -147,7 +147,10 @@ const Select = (props) => {
         disabled: disabled,
         className: `react-jsx-select-input ${className}`,
         onChange: (e) => setQuery(e.target.value),
-        onFocus: () => setIsShowDropdown(true),
+        onFocus: () => {
+          setIsShowDropdown(true);
+          setQuery('');
+        },
         onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
         onKeyDown: (e) => inputKeyMap(e.key),
       }),
@@ -159,7 +162,7 @@ const Select = (props) => {
             purpose === 'dropdown'
               ? () => setIsShowDropdown(!isShowDropdown)
               : purpose === 'search'
-              ? () => {}
+              ? () => onSearch({ value: value, query: query })
               : void 0,
           style: {
             width: iconWidth + 'px',
