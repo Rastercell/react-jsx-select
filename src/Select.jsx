@@ -52,6 +52,8 @@ const Select = (props) => {
     iconWidth,
     iconStyle,
     purpose,
+    onSearch,
+    onExactSearch,
   } = props;
 
   const [isShowDropdown, setIsShowDropdown] = useState(false);
@@ -72,6 +74,14 @@ const Select = (props) => {
   useEffect(() => {
     onChange({ value: value, label: label, jsx: jsx });
   }, [value, label, jsx]);
+
+  useEffect(() => {
+    if (purpose === 'search') onSearch({ value: value, query: label });
+  }, [value, label]);
+
+  useEffect(() => {
+    if (purpose === 'search') onExactSearch(options[activeItem]);
+  }, [activeItem, options]);
 
   const inputKeyMap = (key) => {
     // Initialize Active Product if not already
@@ -224,6 +234,8 @@ Select.propTypes = {
   iconWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   iconStyle: PropTypes.object,
   purpose: PropTypes.string,
+  onSearch: PropTypes.func,
+  onExactSearch: PropTypes.func,
 };
 
 Select.defaultProps = {
@@ -246,6 +258,8 @@ Select.defaultProps = {
     borderRadius: '0 5px 5px 0',
   },
   purpose: 'dropdown',
+  onSearch: () => {},
+  onExactSearch: () => {},
 };
 
 export default Select;
