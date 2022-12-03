@@ -64,6 +64,7 @@ const Select = (props) => {
   const [value, setValue] = useState('');
   const [label, setLabel] = useState('');
   const [jsx, setJsx] = useState('');
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     setValue(options[activeItem]?.value);
@@ -76,7 +77,7 @@ const Select = (props) => {
   }, [value, label, jsx]);
 
   useEffect(() => {
-    if (purpose === 'search') onSearch({ value: value, query: label });
+    if (purpose === 'search') onSearch({ value: value, query: query });
   }, [value, label]);
 
   useEffect(() => {
@@ -141,7 +142,7 @@ const Select = (props) => {
         required: required,
         disabled: disabled,
         className: `react-jsx-select-input ${className}`,
-        onChange: () => {},
+        onChange: (e) => setQuery(e.target.value),
         onFocus: () => setIsShowDropdown(true),
         onBlur: () => (hoveredItem === -1 ? setIsShowDropdown(false) : void 0),
         onKeyDown: (e) => inputKeyMap(e.key),
@@ -193,27 +194,29 @@ const Select = (props) => {
             listStyle: 'none',
           },
         },
-        options?.map((item, i) =>
-          createElement(
-            'li',
-            {
-              key: i,
-              className: 'react-jsx-select-list-item',
-              onMouseOver: () => setHoveredItem(i),
-              onClick: () => onClickOption(i),
-              style: {
-                padding: '8px',
-                margin: 0,
-                listStyle: 'none',
-                cursor: 'pointer',
-                ...((i === activeItem && hoveredItem === -1) ||
-                i === hoveredItem
-                  ? activeItemStyle
-                  : {}),
+        options?.map(
+          (item, i) =>
+            item?.label?.includes(query) &&
+            createElement(
+              'li',
+              {
+                key: i,
+                className: 'react-jsx-select-list-item',
+                onMouseOver: () => setHoveredItem(i),
+                onClick: () => onClickOption(i),
+                style: {
+                  padding: '8px',
+                  margin: 0,
+                  listStyle: 'none',
+                  cursor: 'pointer',
+                  ...((i === activeItem && hoveredItem === -1) ||
+                  i === hoveredItem
+                    ? activeItemStyle
+                    : {}),
+                },
               },
-            },
-            item?.jsx
-          )
+              item?.jsx
+            )
         )
       )
     )
