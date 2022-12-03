@@ -74,15 +74,19 @@ const Select = (props) => {
 
   useEffect(() => {
     onChange({ value: value, label: label, jsx: jsx });
-  }, [value, label, jsx]);
+  }, [value, label, jsx, onChange]);
 
   useEffect(() => {
     if (purpose === 'search') onSearch({ value: value, query: query });
-  }, [value, label]);
+  }, [value, purpose, onSearch, query]);
 
   useEffect(() => {
     if (purpose === 'search') onExactSearch(options[activeItem]);
-  }, [activeItem, options]);
+  }, [activeItem, purpose, options, onExactSearch]);
+
+  useEffect(() => {
+    setQuery(label);
+  }, [label]);
 
   const inputKeyMap = (key) => {
     // Initialize Active Product if not already
@@ -136,7 +140,7 @@ const Select = (props) => {
       createElement('input', {
         type: 'text',
         name: name,
-        value: label,
+        value: query,
         placeholder: placeholder,
         autoComplete: 'off',
         required: required,
